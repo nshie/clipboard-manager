@@ -1,0 +1,21 @@
+body {
+  background: white;
+  width: auto;
+  height: auto;
+}
+
+.centerDiv {
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  justify-self: center;
+  margin: auto;
+  text-align: center;
+}
+
+.mainContainer {
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+}

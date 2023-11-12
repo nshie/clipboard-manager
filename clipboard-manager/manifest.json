@@ -1,0 +1,73 @@
+{
+	"manifest_version": 3,
+
+	"name": "Clipboard Manager",
+	"version": "1.0",
+	"description": "Implements a clipboard manager for your browser, allowing you to copy and paste multiple texts.",
+
+	"permissions": [
+		"identity",
+		"identity.email",
+		"tabs",
+		"activeTab",
+		"storage",
+		"clipboardWrite",
+		"clipboardRead",
+		"scripting"
+	],
+
+	"icons": {
+		"16": "icon16.png",
+		"48": "icon48.png",
+		"128": "icon128.png"
+	},
+
+	"action": {
+		"default_popup": "popup.html",
+		"default_icon": {
+			"16": "icon16.png",
+			"48": "icon48.png",
+			"128": "icon128.png"
+		}
+	},
+
+	"background": {
+		"service_worker": "background.js"
+	},
+
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["content.js"]
+		}
+	],
+
+	"commands": {
+		"copy-1": {
+			"suggested_key": {
+				"default": "Ctrl+Shift+1",
+				"mac": "MacCtrl+Shift+1"
+			},
+			"description": "Copy selected text into the first clipboard slot"
+		},
+		"paste-1": {
+			"suggested_key": {
+				"default": "Alt+1",
+				"mac": "Alt+1"
+			},
+			"description": "Pastes selected text from the first clipboard slot"
+		},
+
+		"_execute_action": {
+			"suggested_key": {
+				"default": "Ctrl+Shift+F",
+				"mac": "MacCtrl+Shift+F"
+			},
+			"description": "Open the extension popup"
+		}
+	},
+
+	"options_ui": {
+		"page": "options.html"
+	}
+}
