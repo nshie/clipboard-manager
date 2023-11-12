@@ -26,12 +26,12 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 			let activeElTagName = activeEl
 				? activeEl.tagName.toLowerCase()
 				: null;
-			if (activeElTagName != "text" && activeElTagName != "input" && activeElTagName != "textarea") break;
+			if (activeElTagName != "text" && activeElTagName != "input" && activeElTagName != "textarea" && !activeEl.isContentEditable) break;
 
 			log("was text area ig");
 
 			getClipboardText(request.slot).then((text) => {
-				activeEl.value += text;
+				insertTextAtCursor(text);
 			});
 			break;
 	}
@@ -40,6 +40,20 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 	return true;
 });
+
+function insertTextAtCursor(text) {
+	var sel, range;
+	if (window.getSelection) {
+		sel = window.getSelection();
+		if (sel.getRangeAt && sel.rangeCount) {
+			range = sel.getRangeAt(0);
+			range.deleteContents();
+			range.insertNode(document.createTextNode(text));
+		}
+	} else if (document.selection && document.selection.createRange) {
+		document.selection.createRange().text = text;
+	}
+}
 
 async function getClipboardText(slot) {
 	let response = await chrome.runtime.sendMessage({

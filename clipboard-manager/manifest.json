@@ -48,21 +48,49 @@
 				"default": "Ctrl+Shift+1",
 				"mac": "MacCtrl+Shift+1"
 			},
-			"description": "Copy selected text into the first clipboard slot"
+			"description": "Copy selected text into the 1st clipboard slot"
+		},
+		"copy-2": {
+			"suggested_key": {
+				"default": "Ctrl+Shift+2",
+				"mac": "MacCtrl+Shift+2"
+			},
+			"description": "Copy selected text into the 2nd clipboard slot"
+		},
+		"copy-3": {
+			"description": "Copy selected text into the 3rd clipboard slot"
+		},
+		"copy-4": {
+			"description": "Copy selected text into the 4th clipboard slot"
+		},
+		"copy-5": {
+			"description": "Copy selected text into the 5th clipboard slot"
 		},
 		"paste-1": {
 			"suggested_key": {
 				"default": "Alt+1",
 				"mac": "Alt+1"
 			},
-			"description": "Pastes selected text from the first clipboard slot"
+			"description": "Pastes selected text from the 1st clipboard slot"
+		},
+		"paste-2": {
+			"suggested_key": {
+				"default": "Alt+2",
+				"mac": "Alt+2"
+			},
+			"description": "Pastes selected text from the 2nd clipboard slot"
+		},
+		"paste-3": {
+			"description": "Pastes selected text from the 3rd clipboard slot"
+		},
+		"paste-4": {
+			"description": "Pastes selected text from the 4th clipboard slot"
+		},
+		"paste-5": {
+			"description": "Pastes selected text from the 5th clipboard slot"
 		},
 
 		"_execute_action": {
-			"suggested_key": {
-				"default": "Ctrl+Shift+F",
-				"mac": "MacCtrl+Shift+F"
-			},
 			"description": "Open the extension popup"
 		}
 	},
